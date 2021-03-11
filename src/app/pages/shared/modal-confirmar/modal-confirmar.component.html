@@ -1,0 +1,16 @@
+<div class="container-modal layout-modal border shadow--large ">
+    <div class="layout-modal__element modal__title">
+        <h2>{{data.producto.nombre_producto}}</h2>
+    </div>
+
+    <div class="layout-modal__element modal__img">
+        <img [src]="data.producto.url_fotografia" alt="">
+    </div>
+
+    <div class="layout-modal__element modal__buttons">
+        <h5 class="text-center">{{data.textoAyuda}}</h5>
+        <button class="btn--principal" (click)="emitir(true)">si</button>
+        <button class="btn--secundario" (click)="emitir(false)">no</button>
+    </div>
+
+</div>

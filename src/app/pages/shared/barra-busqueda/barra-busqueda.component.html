@@ -1,0 +1,8 @@
+<div class="barra-busqueda layout">
+    <input type="text" placeholder="codigo, nombre" [(ngModel)]="contenidoInput" (keyup)="emitirCambio()">
+    <div class="icons">
+        <i class="bi bi-upc-scan" (click)="iniciarScanner()"></i>
+    </div>
+</div>
+
+<app-lector-codigo-barras *ngIf="scanerDisponible"  (newItemEvent)="addItem($event)"></app-lector-codigo-barras>

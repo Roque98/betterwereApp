@@ -1,0 +1,18 @@
+.card-product {
+  column-gap: var(--spacing-1);
+}
+
+.card-product__img {
+  height: 60px;
+  grid-column: 1 / 2;
+  border-radius: 4px;
+}
+
+.card-product__name-product {
+  grid-column: 2 / 4;
+  justify-self: start;
+}
+
+.card-product__stock {
+  grid-column: 4 / 5;
+}

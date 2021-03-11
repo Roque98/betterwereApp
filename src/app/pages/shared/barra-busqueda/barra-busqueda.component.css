@@ -1,0 +1,18 @@
+.layout {
+    grid-template-columns: repeat(8, 1fr);
+}
+
+i {
+    color: #6c757d;
+    font-size: 25px;
+    padding: var(--spacing-1);
+}
+
+input {
+    grid-column: 1 / 8;
+}
+
+.icons {
+    grid-column: 8 / 9;
+    display: flex;
+}

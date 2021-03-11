@@ -1,0 +1,22 @@
+<app-navigation [url]="'/home'" [title]="'inventario'"></app-navigation>
+
+<!-- Modales -->
+<app-modal-actualizar-inventario *ngIf="modalActualizarInventario.visible" [data]="modalActualizarInventario" (emitirEvento)="recibirDataModalAgregar($event)"></app-modal-actualizar-inventario>
+<app-modal-confirmar *ngIf="modalConfirmar.visible" [data]="modalConfirmar" (emitirEvento)="cerrarModalConfirmar($event)"></app-modal-confirmar>
+
+
+<div class="container" *ngIf="!(modalActualizarInventario.visible || modalConfirmar.visible)">
+
+    <app-barra-busqueda (contenidoInputEmmiter)="actualizarValorDeBusqueda($event)"></app-barra-busqueda>
+    
+    <!-- Productos -->
+    <div class="card-group" *ngIf="productos && !cargando">
+        <app-card-producto *ngFor="let producto of productos" [producto]="producto" (click)="abrirModal(producto)"></app-card-producto>
+    </div>
+
+    <div *ngIf="cargando">Cargando...</div>
+    <div >{{error}}</div>
+
+    <app-texto-ayuda [textoAyuda]="textoAyuda"></app-texto-ayuda>
+
+</div>

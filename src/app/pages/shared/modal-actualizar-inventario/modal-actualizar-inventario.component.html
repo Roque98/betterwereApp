@@ -1,0 +1,26 @@
+
+<div class="container-modal layout-modal border shadow--large">
+    <div class="layout-modal__element modal__title">
+        <i class="bi bi-arrow-left" (click)="cancelar()"></i>
+        <h2>{{data.producto.nombre_producto}}</h2>
+        <h5>En stock: {{data.producto.stock}}</h5>
+        <small>Codigo {{data.producto.codigo_producto}}</small>
+    </div>
+    <div class="layout-modal__element modal__body">
+        <blockquote>Cantidad</blockquote>
+        <input type="number" min="0" placeholder="numero de unidades" [(ngModel)]="valorInput">
+        <app-texto-ayuda [textoAyuda]="data.textoAyuda"></app-texto-ayuda>
+    </div>
+    <div class="layout-modal__element modal__precio">
+        <blockquote>Precio {{data.producto.precio | currency}}</blockquote>
+        <div *ngIf="data.producto.precio_especial">
+            <blockquote class="oferta">Precio {{data.producto.precio_especial | currency}}</blockquote>
+            <small class="oferta">{{data.producto.condiciones_precio_especial}}</small>
+        </div>
+    </div>
+    <div class="layout-modal__element modal__buttons">
+        <!-- <button class="btn--secundario-outline" (click)="cancelar()">Cancelar</button> -->
+        <button class="btn--principal"  (click)="agregarStock()">Agregar</button>
+        <button class="btn--secundario"  (click)="removerStock()">Retirar</button>
+    </div>
+</div>

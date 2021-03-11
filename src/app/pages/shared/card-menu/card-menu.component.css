@@ -1,0 +1,11 @@
+.card__body {
+    padding: var(--spacing-3);
+}
+
+.card__title {
+    margin-bottom: var(--spacing-1);
+}
+
+.card__text {
+    margin-bottom: var(--spacing-2);
+}

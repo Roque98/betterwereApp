@@ -1,0 +1,8 @@
+<div class="card border">
+    <img [src]="cardData.src_image" alt="" class="card__img">
+    <div class="card__body">
+        <h5 class="card__title">{{cardData.title}}</h5>
+        <p class="card__text">{{cardData.text}}</p>
+        <button class="card__button btn--principal" (click)="redirectTo()">{{cardData.text_button}}</button>
+    </div>
+</div>

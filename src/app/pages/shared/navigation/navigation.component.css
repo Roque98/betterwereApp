@@ -1,0 +1,28 @@
+
+.navbar{
+    color: white;
+    background-color: var(--color-marca-principal);
+    padding: var(--spacing-3) 0px;
+}
+
+
+.navbar1 {
+    text-align: center;
+}
+
+
+.navbar2 i {
+    grid-column: 1 / 2;
+}
+
+.navbar2 i::before {
+    width: 100%;
+    height: 100%;
+    font-size: var(--h1);
+}
+
+
+.navbar2 h1 {
+    grid-column: 2 / 5;
+    text-align: center;
+}

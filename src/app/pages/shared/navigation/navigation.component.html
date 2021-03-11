@@ -1,0 +1,10 @@
+<div class="navbar navbar1" *ngIf="url === ''">
+    <h1 class="extraBold">{{title}}</h1>
+</div>
+
+<div class="navbar navbar2 layout" *ngIf="url !== ''">
+    <a [routerLink]="[url]">
+        <i class="bi bi-arrow-left"></i>
+    </a>
+    <h1 class="extraBold">{{title}}</h1>
+</div>

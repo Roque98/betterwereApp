@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "betterwereFrontend"
+  "defaultProject": "betterwereFrontend",
+  "cli": {
+    "analytics": false
+  }
 }

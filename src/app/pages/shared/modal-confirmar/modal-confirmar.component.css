@@ -1,0 +1,20 @@
+/* modals */
+.container-modal {
+  padding: var(--spacing-3);
+}
+
+.layout-modal {
+  display: grid;
+  row-gap: var(--spacing-5);
+}
+
+.layout-modal__element {
+  display: grid;
+  row-gap: var(--spacing-2);
+}
+
+.layout-modal .modal__img {
+  border-radius: var(--border-radius);
+  width: 80%;
+  justify-self: center;
+}
