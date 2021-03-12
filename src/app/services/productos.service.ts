@@ -21,8 +21,9 @@ export class ProductosService {
       .toPromise()
   }
 
-  setStock(_id: string, nuevoStock: number){
-    return this.http.patch(`${this.url}/${_id}`, {stock: nuevoStock})
+  setStock(codigo_producto: string, nuevoStock: number){
+    console.log(`${this.url}/${codigo_producto}`);
+    return this.http.patch(`${this.url}/${codigo_producto}`, {stock: nuevoStock})
       .toPromise()
   }
 

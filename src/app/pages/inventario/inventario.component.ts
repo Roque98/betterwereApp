@@ -9,7 +9,8 @@ import { Producto } from '../../interface/producto.interface';
   styleUrls: ['./inventario.component.css'],
 })
 export class InventarioComponent implements OnInit {
-  stock: number;
+  stockActual: number;
+  stockNuevo: number;
   cargando = false;
   error = '';
 
@@ -76,13 +77,14 @@ export class InventarioComponent implements OnInit {
   recibirDataModalAgregar($event) {
     let operacionRealizada = '';
     this.modalActualizarInventario.visible = false;
-    this.stock = $event;
+    this.stockNuevo = $event;
+    this.stockActual = this.modalActualizarInventario.producto.stock;
 
     if ($event !== 0) {
       $event > 0
         ? (operacionRealizada = 'agregar')
         : (operacionRealizada = 'retirar');
-      this.modalConfirmar.textoAyuda = `¿Esta seguro de ${operacionRealizada} ${this.stock} unidades?`;
+      this.modalConfirmar.textoAyuda = `¿Esta seguro de ${operacionRealizada} ${this.stockNuevo} unidades?`;
       this.modalConfirmar.visible = true;
     }
   }
@@ -91,8 +93,8 @@ export class InventarioComponent implements OnInit {
     this.modalConfirmar.visible = false;
     if (confirmar) {
       this.updateInventario(
-        this.modalConfirmar.producto._id,
-        this.stock
+        this.modalConfirmar.producto.codigo_producto.toString(),
+        this.stockNuevo + this.stockActual
       );
     } else {
       this.modalActualizarInventario.visible = true;
@@ -100,11 +102,11 @@ export class InventarioComponent implements OnInit {
   }
 
   // Agregar stock
-  updateInventario(idProducto: string, cantidad: number) {
-    this.productoService.setStock(idProducto, cantidad)
+  updateInventario(codigo_producto: string, cantidad: number) {
+    this.productoService.setStock(codigo_producto, cantidad)
       .then((res) => {
         console.log(res);
-        
+        this.actualizarValorDeBusqueda(codigo_producto)
       })
   }
 }
