@@ -56,6 +56,11 @@ export class InventarioComponent implements OnInit {
     this.productoService.getProductos(this.productoBuscado)
       .then((res) => {
         this.productos = res['data'];        
+        this.productos.forEach((producto) => {
+          if (!producto.stock) {
+            producto.stock = 0;
+          }
+        })
       })
       .catch((error) => {
         this.error = error['message'];
@@ -79,7 +84,8 @@ export class InventarioComponent implements OnInit {
     this.modalActualizarInventario.visible = false;
     this.stockNuevo = $event;
     this.stockActual = this.modalActualizarInventario.producto.stock;
-
+    
+    
     if ($event !== 0) {
       $event > 0
         ? (operacionRealizada = 'agregar')
