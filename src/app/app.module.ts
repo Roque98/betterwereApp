@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,23 @@ import { CardProductoComponent } from './pages/shared/card-producto/card-product
 // the scanner!
 import { BarcodeScannerLivestreamModule } from "ngx-barcode-scanner";
 import { LectorCodigoBarrasComponent } from './pages/shared/barra-busqueda/lector-codigo-barras/lector-codigo-barras.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { LogoutComponent } from './pages/auth/logout/logout.component';
+import { HistorialComponent } from './pages/historial/historial.component';
+
+// Idioma fecha
+import localEs from "@angular/common/locales/es";
+import { registerLocaleData } from '@angular/common'
+
+registerLocaleData(localEs, 'es')
+
+
+// auth
+export function tokenGetter() {
+  return localStorage.getItem("ACCESS_TOKEN");
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,15 +48,25 @@ import { LectorCodigoBarrasComponent } from './pages/shared/barra-busqueda/lecto
     LectorCodigoBarrasComponent,
     ModalConfirmarComponent,
     CardProductoComponent,
+    LoginComponent,
+    LogoutComponent,
+    HistorialComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+      },
+    }),
     FormsModule,
-    BarcodeScannerLivestreamModule,
+    ReactiveFormsModule,
+    BarcodeScannerLivestreamModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

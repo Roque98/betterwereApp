@@ -1,0 +1,20 @@
+<app-navigation [url]="''" [title]="'Betterwere App'"></app-navigation>
+<div class="container">
+  <form [formGroup]="authForm"  (ngSubmit)="onSubmit()" *ngIf="!cargando">
+    <div class="form_element">
+      <h6>Ingresa tu email</h6>
+      <input type="email" placeholder="user" formControlName="email">
+    </div>
+    <div class="form_element">
+      <h6>Ingresa tu password</h6>
+      <input type="password" placeholder="password" formControlName="password">
+    </div>
+    <button type="submit" class="button btn--principal" [disabled]="!authForm.valid">Enviar</button>
+  </form>
+
+  <blockquote *ngIf="cargando">
+    Cargando...
+  </blockquote>
+
+  <small>{{error}}</small>
+</div>

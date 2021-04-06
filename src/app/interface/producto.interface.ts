@@ -1,6 +1,6 @@
 export interface Producto {
     _id?: string;
-    codigo_producto: number;
+    codigo_producto: string;
     url_fotografia: string;
     nombre_producto: string;
     stock: number;

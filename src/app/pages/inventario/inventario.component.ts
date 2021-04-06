@@ -45,13 +45,12 @@ export class InventarioComponent implements OnInit {
   // Barra de busqueda
   actualizarValorDeBusqueda($event) {
     this.productoBuscado = $event;
+    this.error = '';
     this.getProductos();
   }
 
   // Productos
   getProductos() {
-    // this.productos = this.productoService.getProductos(this.productoBuscado);
-    // console.log(this.productos);
     this.cargando = true;
     this.productoService.getProductos(this.productoBuscado)
       .then((res) => {
@@ -79,15 +78,15 @@ export class InventarioComponent implements OnInit {
     this.modalActualizarInventario.visible = true;
   }
 
-  recibirDataModalAgregar($event) {
+  recibirDataModalAgregar(stock:number) {
     let operacionRealizada = '';
     this.modalActualizarInventario.visible = false;
-    this.stockNuevo = $event;
+    this.stockNuevo = stock;
     this.stockActual = this.modalActualizarInventario.producto.stock;
     
     
-    if ($event !== 0) {
-      $event > 0
+    if (stock !== 0) {
+      stock > 0
         ? (operacionRealizada = 'agregar')
         : (operacionRealizada = 'retirar');
       this.modalConfirmar.textoAyuda = `¿Esta seguro de ${operacionRealizada} ${this.stockNuevo} unidades?`;
@@ -99,8 +98,11 @@ export class InventarioComponent implements OnInit {
     this.modalConfirmar.visible = false;
     if (confirmar) {
       this.updateInventario(
-        this.modalConfirmar.producto.codigo_producto.toString(),
-        this.stockNuevo + this.stockActual
+        this.modalConfirmar.producto.codigo_producto,
+        this.stockNuevo + this.stockActual,
+        this.modalActualizarInventario.producto.nombre_producto, 
+        this.stockNuevo>0? 'entrada' : 'salida',
+        this.stockNuevo
       );
     } else {
       this.modalActualizarInventario.visible = true;
@@ -108,10 +110,11 @@ export class InventarioComponent implements OnInit {
   }
 
   // Agregar stock
-  updateInventario(codigo_producto: string, cantidad: number) {
-    this.productoService.setStock(codigo_producto, cantidad)
+  updateInventario(codigo_producto: string, nuevoStock: number, nombre_producto: string, tipo_operacion: 'entrada' | 'salida', cantidad: number) {
+    this.productoService.setStock(codigo_producto, nuevoStock, { nombre_producto, tipo_operacion, cantidad })
       .then((res) => {
         console.log(res);
+        
         this.actualizarValorDeBusqueda(codigo_producto)
       })
   }

@@ -17,12 +17,6 @@
   --color-oferta: #CA6510;
   --color-fuente-principal: #152536;
   --color-stroke-light: #dee2e6;
-/* 
-  --color-marca-principal: #4ac0d5;
-  --color-principal: #f7a964;
-  --color-secundario: #f5785f;
-  --color-fuente-principal: #152536;
-  --color-stroke-light: #d8e0df; */
 
   /* Fuentes */
   --fuente-principal: "Inter", sans-serif;
@@ -100,6 +94,7 @@ h6 {
   font-size: var(--h6);
 }
 
+/* Buttons */
 button {
   padding: var(--spacing-2);
   color: white;
@@ -124,6 +119,7 @@ button.btn--secundario-outline {
   border: 1px solid var(--color-secundario);
 }
 
+/* Forms */
 input {
   width: 100%;
   padding: var(--spacing-2);
@@ -137,6 +133,20 @@ img {
   height: auto;
   object-fit: cover;
 }
+
+form {
+  display: grid;
+  grid-row: 1fr;
+  row-gap: var(--spacing-3);
+}
+
+.form_element{
+  display: grid;
+  grid-row: 1fr;
+  row-gap: var(--spacing-1);
+}
+
+/* table */
 
 /* UTILS */
 

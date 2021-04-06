@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlApiProductos: 'https://betterwere.herokuapp.com/api'
+  urlApiProductos: 'https://betterwereappusuarios.herokuapp.com/api'
 };

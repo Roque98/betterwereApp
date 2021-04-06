@@ -5,7 +5,7 @@
 
 .layout-modal {
   display: grid;
-  row-gap: var(--spacing-5);
+  row-gap: var(--spacing-4);
 }
 
 .layout-modal__element {

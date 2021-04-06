@@ -1,4 +1,4 @@
-<app-navigation [url]="'/home'" [title]="'inventario'"></app-navigation>
+<app-navigation [url]="'/home'" [title]="'inventario'" *ngIf="!(modalActualizarInventario.visible || modalConfirmar.visible)"></app-navigation>
 
 <!-- Modales -->
 <app-modal-actualizar-inventario *ngIf="modalActualizarInventario.visible" [data]="modalActualizarInventario" (emitirEvento)="recibirDataModalAgregar($event)"></app-modal-actualizar-inventario>

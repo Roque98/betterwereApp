@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { productosData } from "../data/products.data";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Producto } from '../interface/producto.interface';
 
@@ -9,37 +8,35 @@ import { Producto } from '../interface/producto.interface';
 })
 export class ProductosService {
 
-  productos = [...productosData];
-  url = `${environment.urlApiProductos}/productos`;
+  url = `${environment.urlApiProductos}/stock`;
 
   constructor(private http: HttpClient) { }
 
+  getHttpOptions(){
+    const token = "Bearer " + this.getToken();
+
+    return {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: token
+      })
+    };
+  }
+
+  
+  private getToken(){
+    return localStorage.getItem('ACCESS_TOKEN');
+  }
 
   getProductos(valorBuscado: string){
     if(valorBuscado === '') return Promise.resolve([])
-    return this.http.get<Producto[]>(`${this.url}/${valorBuscado}`)
+    return this.http.get<Producto[]>(`${this.url}/${valorBuscado}`, this.getHttpOptions() )
       .toPromise()
   }
 
-  setStock(codigo_producto: string, nuevoStock: number){
-    console.log(`${this.url}/${codigo_producto}`);
-    return this.http.patch(`${this.url}/${codigo_producto}`, {stock: nuevoStock})
+  setStock(codigo_producto: string, nuevoStock: number, informacionHistorial:{ nombre_producto: string, tipo_operacion: 'entrada' | 'salida', cantidad: number }){
+    return this.http.post(`${this.url}/${codigo_producto}`, {stock: nuevoStock, informacionHistorial}, this.getHttpOptions())
       .toPromise()
   }
 
-  // getProductosMockData(valorBuscado: string) {
-  //   if(valorBuscado === '') return;
-
-  //   valorBuscado = valorBuscado.toUpperCase();
-    
-  //   return this.productos.filter(({ codigoProducto, nombreProducto }) => nombreProducto.toUpperCase().includes(valorBuscado) || codigoProducto.toString().toUpperCase().includes(valorBuscado))
-  // }
-
-  // setStockMockData(codigoProducto: number, cantidadNuevosProductos: number){
-  //   this.productos.forEach((producto) => {
-  //     if(producto.codigoProducto === codigoProducto){
-  //       producto.stock += cantidadNuevosProductos;
-  //     }
-  //   })
-  // }
 }
