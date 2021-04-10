@@ -28,11 +28,15 @@ export class HistorialComponent implements OnInit {
 
 
   getHistorial($event){
+    this.cargando = true;
     this.fechaSeleccionada = $event;
     this.historialService
       .getListHistorial(this.fechaSeleccionada)
       .then((res: any) => {
         this.data = res;
+      })
+      .finally(() => {
+        this.cargando = false;
       });
   }
 
