@@ -46,6 +46,11 @@
 
   /* border-radius */
   --border-radius: 4px;
+
+  /* Breakpoints */
+  --small: 576px;
+  --medium: 768px;
+  --large: 992px;
 }
 
 
@@ -53,6 +58,7 @@
 body {
   font-family: var(--fuente-principal);
   color: var(--color-fuente-principal);
+  background-color: whitesmoke;
 }
 
 a {

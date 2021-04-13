@@ -18,3 +18,19 @@
   width: 80%;
   justify-self: center;
 }
+
+
+/* medium*/
+@media (min-width: 576px) {
+  .layout-modal .modal__img {
+    width: 40%;
+  }
+}
+
+
+/* large */
+@media (min-width: 768px) {
+  .layout-modal .modal__img {
+    width: 25%;
+  }
+}

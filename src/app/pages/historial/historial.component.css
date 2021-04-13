@@ -10,7 +10,7 @@ table {
   font-size: var(--h5);
 }
 
-.container-table{
+.container-table {
   padding-top: 20px;
 }
 
@@ -28,4 +28,14 @@ th {
   padding: 6px;
   border: 1px solid #ccc;
   text-align: left;
+}
+
+/* large */
+@media (min-width: 768px) {
+  .container-table {
+    padding: var(--spacing-5) var(--spacing-4);
+    display: grid;
+    grid-row: 1fr;
+    row-gap: var(--spacing-4);
+  }
 }

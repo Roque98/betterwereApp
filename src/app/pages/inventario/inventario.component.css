@@ -1,4 +1,19 @@
 .card-group {
-    display: grid;
-    row-gap: var(--spacing-2);
+  display: grid;
+  row-gap: var(--spacing-2);
+  column-gap: var(--spacing-2);
+}
+
+/* medium*/
+@media (min-width: 576px) {
+  .card-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* large */
+@media (min-width: 768px) {
+  .card-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
