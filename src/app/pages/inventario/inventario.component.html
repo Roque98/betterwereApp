@@ -5,17 +5,19 @@
 <app-modal-confirmar *ngIf="modalConfirmar.visible" [data]="modalConfirmar" (emitirEvento)="cerrarModalConfirmar($event)"></app-modal-confirmar>
 
 
-<div class="container" *ngIf="!(modalActualizarInventario.visible || modalConfirmar.visible)">
+<div class="container fadeIn" *ngIf="!(modalActualizarInventario.visible || modalConfirmar.visible)">
 
     <app-barra-busqueda (contenidoInputEmmiter)="actualizarValorDeBusqueda($event)"></app-barra-busqueda>
     
     <!-- Productos -->
-    <div class="card-group" *ngIf="productos && !cargando">
+    <div class="card-group fadeIn" *ngIf="productos && !cargando">
         <app-card-producto *ngFor="let producto of productos" [producto]="producto" (click)="abrirModal(producto)"></app-card-producto>
     </div>
 
-    <div *ngIf="cargando">Cargando...</div>
-    <div >{{error}}</div>
+    <!-- Loader -->
+    <app-loader *ngIf="cargando"></app-loader>
+
+    
 
     <app-texto-ayuda [textoAyuda]="textoAyuda"></app-texto-ayuda>
 

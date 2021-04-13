@@ -25,7 +25,8 @@ import { HistorialComponent } from './pages/historial/historial.component';
 
 // Idioma fecha
 import localEs from "@angular/common/locales/es";
-import { registerLocaleData } from '@angular/common'
+import { registerLocaleData } from '@angular/common';
+import { LoaderComponent } from './pages/shared/loader/loader.component'
 
 registerLocaleData(localEs, 'es')
 
@@ -51,6 +52,7 @@ export function tokenGetter() {
     LoginComponent,
     LogoutComponent,
     HistorialComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

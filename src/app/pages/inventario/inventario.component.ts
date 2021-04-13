@@ -111,11 +111,13 @@ export class InventarioComponent implements OnInit {
 
   // Agregar stock
   updateInventario(codigo_producto: string, nuevoStock: number, nombre_producto: string, tipo_operacion: 'entrada' | 'salida', cantidad: number) {
+    this.cargando = true;
     this.productoService.setStock(codigo_producto, nuevoStock, { nombre_producto, tipo_operacion, cantidad })
       .then((res) => {
-        console.log(res);
-        
         this.actualizarValorDeBusqueda(codigo_producto)
+      })
+      .finally(() => {
+        this.cargando = false;
       })
   }
 }
