@@ -1,8 +1,7 @@
 <app-navigation [url]="'/home'" [title]="'historial'"></app-navigation>
 
-<blockquote *ngIf="cargando">
-  cargando ...
-</blockquote>
+<!-- Loader -->
+<app-loader *ngIf="cargando"></app-loader>
 
 <div class="container">
   <button (click)="mostrarFiltrosDeBusqueda = !mostrarFiltrosDeBusqueda" class="button btn--principal">Mostrar filtros de busqueda</button>

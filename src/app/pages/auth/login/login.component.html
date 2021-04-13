@@ -12,9 +12,8 @@
     <button type="submit" class="button btn--principal" [disabled]="!authForm.valid">Enviar</button>
   </form>
 
-  <blockquote *ngIf="cargando">
-    Cargando...
-  </blockquote>
+  <!-- Loader -->
+  <app-loader *ngIf="cargando"></app-loader>
 
   <small>{{error}}</small>
 </div>
