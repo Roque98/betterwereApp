@@ -8,8 +8,22 @@ i {
     padding: var(--spacing-1);
 }
 
-input {
+.input-container {
     grid-column: 1 / 8;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.input-search{
+    grid-column: 1/9;
+    grid-row: 1/2;
+}
+
+.button-clear-input {
+    grid-column: 8/9;
+    grid-row: 1/2;
+    background-color: #adb5bd;
 }
 
 .icons {

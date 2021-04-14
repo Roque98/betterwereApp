@@ -30,4 +30,9 @@ export class BarraBusquedaComponent implements OnInit {
     this.scanerDisponible = false;
     this.emitirCambio();
   }
+
+  clearInput(){
+    this.contenidoInput = '';
+    this.emitirCambio;
+  }
 }

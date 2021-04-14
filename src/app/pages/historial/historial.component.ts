@@ -34,6 +34,7 @@ export class HistorialComponent implements OnInit {
       .getListHistorial(this.fechaSeleccionada)
       .then((res: any) => {
         this.data = res;
+        
       })
       .finally(() => {
         this.cargando = false;
