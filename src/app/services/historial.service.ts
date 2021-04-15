@@ -28,7 +28,9 @@ export class HistorialService {
   }
 
   getListHistorial(fecha:string){
-    const fechaFinal = new Date(fecha).toISOString().replace('Z','');
+    let fechaFinal = ''
+    if (fecha !== '') fechaFinal = new Date(fecha).toISOString().replace('Z','');
+
     return this.http.post(`${environment.urlApiProductos}/historial`,{ fecha: fechaFinal }, this.getHttpOptions())
       .toPromise()
   }

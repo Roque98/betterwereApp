@@ -8,6 +8,7 @@ table {
   overflow-x: auto;
   white-space: nowrap;
   font-size: var(--h5);
+  margin: 0 auto;
 }
 
 .container-table {

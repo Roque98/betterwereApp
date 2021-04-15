@@ -67,8 +67,7 @@ export function tokenGetter() {
     ReactiveFormsModule,
     BarcodeScannerLivestreamModule
   ],
-  providers: [
-  ],
+  providers: [ { provide: LOCALE_ID, useValue: 'es' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

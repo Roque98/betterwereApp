@@ -10,7 +10,7 @@ export class HistorialComponent implements OnInit {
   data = [];
   cargando = false;
   mostrarFiltrosDeBusqueda = false;
-  fechaSeleccionada = this.getToday();
+  fechaSeleccionada = '';
 
   constructor(public historialService: HistorialService) {}
 

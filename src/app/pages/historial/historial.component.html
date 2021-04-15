@@ -3,12 +3,12 @@
 <!-- Loader -->
 <app-loader *ngIf="cargando"></app-loader>
 
-<div class="container">
+<!-- <div class="container">
   <button (click)="mostrarFiltrosDeBusqueda = !mostrarFiltrosDeBusqueda" class="button btn--principal">Mostrar filtros de busqueda</button>
   <blockquote *ngIf="mostrarFiltrosDeBusqueda">
-    <input type="date" [ngModel] ="fechaSeleccionada | date:'yyyy-MM-dd'" (ngModelChange)="getHistorial($event)">
+    <input type="date" [ngModel] ="fechaSeleccionada" (ngModelChange)="getHistorial($event)">
   </blockquote>
-</div>
+</div> -->
 
 <div class="container-table" *ngIf="!cargando">
 
