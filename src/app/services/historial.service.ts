@@ -34,4 +34,9 @@ export class HistorialService {
     return this.http.post(`${environment.urlApiProductos}/historial`,{ fecha: fechaFinal }, this.getHttpOptions())
       .toPromise()
   }
+
+  getListarSalidasDeInventario(){
+    return this.http.get(`${environment.urlApiProductos}/historial/listarSalidas`, this.getHttpOptions())
+      .toPromise()
+  }
 }

@@ -26,9 +26,15 @@ import { HistorialComponent } from './pages/historial/historial.component';
 // Idioma fecha
 import localEs from "@angular/common/locales/es";
 import { registerLocaleData } from '@angular/common';
-import { LoaderComponent } from './pages/shared/loader/loader.component'
+import { LoaderComponent } from './pages/shared/loader/loader.component';
+import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
+import { SizeInventoryComponent } from './pages/estadisticas/size-inventory/size-inventory.component'
 
 registerLocaleData(localEs, 'es')
+
+// Graficas
+import { ChartsModule } from 'ng2-charts';
+import { MasVendidosComponent } from './pages/estadisticas/mas-vendidos/mas-vendidos.component';
 
 
 // auth
@@ -53,6 +59,9 @@ export function tokenGetter() {
     LogoutComponent,
     HistorialComponent,
     LoaderComponent,
+    EstadisticasComponent,
+    SizeInventoryComponent,
+    MasVendidosComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +74,8 @@ export function tokenGetter() {
     }),
     FormsModule,
     ReactiveFormsModule,
-    BarcodeScannerLivestreamModule
+    BarcodeScannerLivestreamModule,
+    ChartsModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'es' } ],
   bootstrap: [AppComponent]

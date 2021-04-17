@@ -1,0 +1,13 @@
+<app-navigation [url]="'/estadisticas'" [title]="'Tamaño inventario'"></app-navigation>
+
+<div class="chart-wrapper" >
+  <canvas baseChart 
+      [datasets]="lineChartData" 
+      [labels]="lineChartLabels" 
+      [options]="lineChartOptions"
+      [colors]="lineChartColors" 
+      [legend]="lineChartLegend" 
+      [chartType]="lineChartType" 
+      [plugins]="lineChartPlugins">
+  </canvas>
+</div>

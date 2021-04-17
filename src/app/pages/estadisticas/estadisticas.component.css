@@ -1,0 +1,22 @@
+/* cards */
+.card-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  row-gap: var(--spacing-4);
+  column-gap: var(--spacing-2);
+}
+
+/* medium*/
+@media (min-width: 576px) {
+  .card-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* large */
+@media (min-width: 768px) {
+  .card-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

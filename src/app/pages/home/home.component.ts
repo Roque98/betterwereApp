@@ -24,6 +24,14 @@ export class HomeComponent implements OnInit {
     url: '/historial'
   }
 
+  infoCardEstadisticas: CardMenu = {
+    src_image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+    title: 'Estadisticas',
+    text: 'Conoce lo que los números dicen de tu inventario (¿Cuáles son los productos más vendidos?, ¿Que tan grande es mi inventario?,¿Cuantos productos he vendido?)',
+    text_button: 'Ir a estadisticas',
+    url: '/estadisticas'
+  }
+
   infoCardLogOut: CardMenu = {
     src_image: 'https://images.unsplash.com/photo-1564697259644-03cd5e7363fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
     title: 'Cerrar sesion',

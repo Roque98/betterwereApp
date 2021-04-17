@@ -1,0 +1,44 @@
+<app-navigation [url]="'/estadisticas'" [title]="'Los mas vendidos'"></app-navigation>
+
+<h3 class="text-center">Los 6 mas vendidos</h3>
+
+<app-loader *ngIf="cargando || !cargado"></app-loader>
+
+<div *ngIf="cargado">
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
+</div>
+</div>
+
+<app-texto-ayuda [textoAyuda]="'Toca la grafica para ver mas detalles'"></app-texto-ayuda>
+
+<h3 class="text-center">Productos ordenados de mayor a menor salidas del inventario</h3>
+
+
+<div class="container-table" *ngIf="!cargando">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre del producto</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let registro of data">
+        <td>{{registro.codigo_producto}}</td>
+        <td>{{registro.nombre_producto}}</td>
+        <td>{{registro.cantidaSalidas}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
