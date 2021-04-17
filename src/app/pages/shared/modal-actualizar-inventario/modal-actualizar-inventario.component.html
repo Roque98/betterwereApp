@@ -12,7 +12,7 @@
         <app-texto-ayuda [textoAyuda]="data.textoAyuda"></app-texto-ayuda>
     </div>
     <div class="layout-modal__element modal__precio">
-        <blockquote>Precio {{data.producto.precio | currency}}</blockquote>
+        <blockquote>Precio ${{data.producto.precio | currency:"MXN":"symbol"}}</blockquote>
         <div *ngIf="data.producto.precio_especial">
             <blockquote class="oferta">Precio {{data.producto.precio_especial | currency}}</blockquote>
             <small class="oferta">{{data.producto.condiciones_precio_especial}}</small>
