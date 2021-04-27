@@ -24,6 +24,15 @@ export class HomeComponent implements OnInit {
     url: '/historial'
   }
 
+  infoCardOrganizar: CardMenu = {
+    src_image: 'https://images.unsplash.com/photo-1586892477838-2b96e85e0f96?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=741&q=80',
+    title: 'Organizar inventario',
+    text: 'Organiza tu inventario virtual igual a como organizas tu inventario fisico.',
+    text_button: 'Ir a oganizar inventario',
+    url: '/organizar'
+  }
+
+
   infoCardEstadisticas: CardMenu = {
     src_image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
     title: 'Estadisticas',

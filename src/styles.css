@@ -16,8 +16,12 @@
   --color-principal-hover: #aa2b6a;
   --color-secundario: #7749f8;
   --color-oferta: #CA6510;
+  --color-action-editar:#3d8bfd;
+  --color-action-eliminar: #e35d6a;
+  --color-action-agregar: #479f76;
   --color-fuente-principal: #152536;
   --color-stroke-light: #dee2e6;
+  --color-shadow: #dee2e6;
 
   /* Fuentes */
   --fuente-principal: "Inter", sans-serif;
@@ -60,6 +64,11 @@ body {
   font-family: var(--fuente-principal);
   color: var(--color-fuente-principal);
   background-color: whitesmoke;
+}
+
+i {
+  font-style: normal;
+  font-size: var(--h5);
 }
 
 a {
@@ -131,6 +140,25 @@ button.btn--secundario-outline {
   border: 1px solid var(--color-secundario);
 }
 
+button.btn--acion-edit{
+  border-radius: 20%;
+  background-color: var(--color-action-editar);
+}
+
+button.btn--acion-delete{
+  border-radius: 20%;
+  background-color: var(--color-action-eliminar);
+}
+
+button.btn--action-add{
+  background-color: var(--color-principal);
+  /* position: fixed;
+  bottom: 20px;
+  left: 20px; */
+}
+
+
+
 /* Forms */
 input {
   width: 100%;
@@ -183,8 +211,12 @@ form {
 
 /* shadows */
 
+.shadow--short {
+  box-shadow: 0px 2px 2px var(--color-shadow);
+}
+
 .shadow--large {
-  box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 8px 35px var(--color-shadow);
 }
 
 /* containers */

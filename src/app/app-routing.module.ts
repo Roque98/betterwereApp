@@ -1,25 +1,33 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { CheckAuthenticatedGuard } from "./guards/check-authenticated.guard";
 import { CheckInAuthenticatedGuard } from "./guards/check-inauthenticated.guard";
 import { LogoutComponent } from './pages/auth/logout/logout.component';
-import { HistorialComponent } from './pages/historial/historial.component';
-import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
-import { SizeInventoryComponent } from './pages/estadisticas/size-inventory/size-inventory.component';
-import { MasVendidosComponent } from './pages/estadisticas/mas-vendidos/mas-vendidos.component';
+import { OrganizarComponent } from './pages/organizar/organizar.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate:[CheckInAuthenticatedGuard]},
   { path: 'logout', component: LogoutComponent, canActivate:[CheckAuthenticatedGuard]},
   { path: 'home', component: HomeComponent, canActivate: [CheckAuthenticatedGuard] },
-  { path: 'inventario', component: InventarioComponent, canActivate: [CheckAuthenticatedGuard] },
-  { path: 'estadisticas', component: EstadisticasComponent, canActivate: [CheckAuthenticatedGuard] },
-  { path: 'estadisticas/size', component: SizeInventoryComponent, canActivate: [CheckAuthenticatedGuard] },
-  { path: 'estadisticas/mas-vendidos', component: MasVendidosComponent, canActivate: [CheckAuthenticatedGuard] },
-  { path: 'historial', component: HistorialComponent, canActivate: [CheckAuthenticatedGuard] },
+  { 
+    path: 'inventario',
+    loadChildren: ()=>import('./pages/inventario/inventario.module').then(m=>m.InventarioModule),
+    canActivate: [CheckAuthenticatedGuard] 
+  },
+  { 
+    path: 'estadisticas', 
+    loadChildren: ()=>import('./pages/estadisticas/estadisticas.module').then(m=>m.EstadisticasModule), 
+    canActivate: [CheckAuthenticatedGuard] 
+  },
+  { 
+    path: 'historial', 
+    loadChildren: ()=> import('./pages/historial/historial.module').then(m=>m.HistorialModule),
+    canActivate: [CheckAuthenticatedGuard] 
+  },
+  { path: 'organizar', component: OrganizarComponent, canActivate: [CheckAuthenticatedGuard] },
   { path: '**', redirectTo: 'home' }
 ];
 

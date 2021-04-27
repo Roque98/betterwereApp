@@ -1,0 +1,13 @@
+<app-navigation [url]="'home'" [title]="'Organizar inventario'"></app-navigation>
+
+<div class="container">
+  <button class="btn--action-add"><i class="bi bi-plus-circle"> Agregar nueva ubicacion</i></button>
+
+  <h1>Ubicaciones</h1>
+
+  <div *ngFor="let ubicacion of ubicaciones">
+    <app-card-producto-organizar [ubicacion]='ubicacion'></app-card-producto-organizar>
+  </div>
+
+  <app-texto-ayuda [textoAyuda]="textoAyuda"></app-texto-ayuda>
+</div>

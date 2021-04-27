@@ -2,39 +2,42 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InventarioComponent } from './pages/inventario/inventario.component';
+
+// Componentes
 import { HomeComponent } from './pages/home/home.component';
-import { NavigationComponent } from './pages/shared/navigation/navigation.component';
-import { BarraBusquedaComponent } from './pages/shared/barra-busqueda/barra-busqueda.component';
-import { TextoAyudaComponent } from './pages/shared/texto-ayuda/texto-ayuda.component';
-import { ModalActualizarInventarioComponent } from './pages/shared/modal-actualizar-inventario/modal-actualizar-inventario.component';
-import { CardMenuComponent } from './pages/shared/card-menu/card-menu.component';
-import { ModalConfirmarComponent } from './pages/shared/modal-confirmar/modal-confirmar.component';
-import { CardProductoComponent } from './pages/shared/card-producto/card-producto.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { LogoutComponent } from './pages/auth/logout/logout.component';
+import { CardProductoOrganizarComponent } from './pages/organizar/card-producto-organizar/card-producto-organizar.component';
+import { OrganizarComponent } from './pages/organizar/organizar.component';
 
 // the scanner!
 import { BarcodeScannerLivestreamModule } from "ngx-barcode-scanner";
 import { LectorCodigoBarrasComponent } from './pages/shared/barra-busqueda/lector-codigo-barras/lector-codigo-barras.component';
-import { LoginComponent } from './pages/auth/login/login.component';
+
+// jwt
 import { JwtModule } from '@auth0/angular-jwt';
-import { LogoutComponent } from './pages/auth/logout/logout.component';
-import { HistorialComponent } from './pages/historial/historial.component';
 
 // Idioma fecha
 import localEs from "@angular/common/locales/es";
 import { registerLocaleData } from '@angular/common';
-import { LoaderComponent } from './pages/shared/loader/loader.component';
-import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
-import { SizeInventoryComponent } from './pages/estadisticas/size-inventory/size-inventory.component'
-
 registerLocaleData(localEs, 'es')
 
 // Graficas
 import { ChartsModule } from 'ng2-charts';
-import { MasVendidosComponent } from './pages/estadisticas/mas-vendidos/mas-vendidos.component';
+
+// Modulos
+import { SharedModule } from './pages/shared/shared.module';
+import { EstadisticasModule } from './pages/estadisticas/estadisticas.module';
+
+// Servicios
+import { ProductosService } from './services/productos.service';
+import { HistorialService } from './services/historial.service';
+import { AuthService } from './services/auth.service';
+import { UbicacionService } from './services/ubicacion.service';
+import { InventarioModule } from './pages/inventario/inventario.module';
+
 
 
 // auth
@@ -45,23 +48,12 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    InventarioComponent,
     HomeComponent,
-    NavigationComponent,
-    BarraBusquedaComponent,
-    TextoAyudaComponent,
-    ModalActualizarInventarioComponent,
-    CardMenuComponent,
     LectorCodigoBarrasComponent,
-    ModalConfirmarComponent,
-    CardProductoComponent,
     LoginComponent,
     LogoutComponent,
-    HistorialComponent,
-    LoaderComponent,
-    EstadisticasComponent,
-    SizeInventoryComponent,
-    MasVendidosComponent,
+    OrganizarComponent,
+    CardProductoOrganizarComponent
   ],
   imports: [
     BrowserModule,
@@ -75,9 +67,19 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     BarcodeScannerLivestreamModule,
-    ChartsModule
+    ChartsModule,
+    SharedModule,
+    EstadisticasModule,
+    InventarioModule
   ],
-  providers: [ { provide: LOCALE_ID, useValue: 'es' } ],
+  providers: [ 
+    { provide: LOCALE_ID, useValue: 'es' } ,
+    ProductosService,
+    HistorialService,
+    AuthService,
+    UbicacionService,
+    EstadisticasModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

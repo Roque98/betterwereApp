@@ -5,6 +5,7 @@
 <app-modal-confirmar *ngIf="modalConfirmar.visible" [data]="modalConfirmar" (emitirEvento)="cerrarModalConfirmar($event)"></app-modal-confirmar>
 
 
+<!-- Contenido -->
 <div class="container fadeIn" *ngIf="!(modalActualizarInventario.visible || modalConfirmar.visible)">
 
     <app-barra-busqueda (contenidoInputEmmiter)="actualizarValorDeBusqueda($event)"></app-barra-busqueda>

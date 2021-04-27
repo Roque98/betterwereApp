@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "ng serve --host 192.168.0.15",
-    "dev:http": "ng serve --host 192.168.0.15 --ssl true --ssl-cert ./ssl/server.crt --ssl-key ./ssl/server.key"
+    "dev": "ng serve --host 192.168.0.11",
+    "dev:http": "ng serve --host 192.168.0.11 --ssl true --ssl-cert ./ssl/server.crt --ssl-key ./ssl/server.key"
   },
   "private": true,
   "dependencies": {

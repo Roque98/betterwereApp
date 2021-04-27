@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Modal } from 'src/app/interface/modal.interface';
 import { ProductosService } from 'src/app/services/productos.service';
 import { Producto } from '../../interface/producto.interface';
@@ -13,6 +14,7 @@ export class InventarioComponent implements OnInit {
   stockNuevo: number;
   cargando = false;
   error = '';
+  subscription: Subscription;
 
   // Barra de busqueda
   productoBuscado: string = '';
@@ -43,7 +45,7 @@ export class InventarioComponent implements OnInit {
   ngOnInit(): void {}
 
   // Barra de busqueda
-  actualizarValorDeBusqueda($event) {
+  actualizarValorDeBusqueda($event) {    
     this.productoBuscado = $event;
     this.error = '';
     this.getProductos();
@@ -51,23 +53,24 @@ export class InventarioComponent implements OnInit {
 
   // Productos
   getProductos() {
-    this.cargando = true;
-    this.productoService.getProductos(this.productoBuscado)
-      .then((res) => {
-        this.productos = res['data'];        
-        this.productos.forEach((producto) => {
-          if (!producto.stock) {
-            producto.stock = 0;
-          }
+      this.cargando = true;
+      this.productoService.getProductos(this.productoBuscado)
+        .then((res) => {
+          
+          this.productos = res['data'];        
+          this.productos.forEach((producto) => {
+            if (!producto.stock) {
+              producto.stock = 0;
+            }
+          })
         })
-      })
-      .catch((error) => {
-        this.error = error['message'];
-      })
-      .finally(() => {
-        this.cargando = false;
-      })
-    
+        .catch((error) => {
+          this.error = error['message'];
+        })
+        .finally(() => {
+          this.cargando = false;
+        })
+
   }
 
   // Modal
