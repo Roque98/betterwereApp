@@ -14,7 +14,6 @@ import { OrganizarComponent } from './pages/organizar/organizar.component';
 
 // the scanner!
 import { BarcodeScannerLivestreamModule } from "ngx-barcode-scanner";
-import { LectorCodigoBarrasComponent } from './pages/shared/barra-busqueda/lector-codigo-barras/lector-codigo-barras.component';
 
 // jwt
 import { JwtModule } from '@auth0/angular-jwt';
@@ -24,19 +23,14 @@ import localEs from "@angular/common/locales/es";
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localEs, 'es')
 
-// Graficas
-import { ChartsModule } from 'ng2-charts';
-
 // Modulos
 import { SharedModule } from './pages/shared/shared.module';
-import { EstadisticasModule } from './pages/estadisticas/estadisticas.module';
 
 // Servicios
 import { ProductosService } from './services/productos.service';
 import { HistorialService } from './services/historial.service';
 import { AuthService } from './services/auth.service';
 import { UbicacionService } from './services/ubicacion.service';
-import { InventarioModule } from './pages/inventario/inventario.module';
 
 
 
@@ -49,7 +43,6 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     HomeComponent,
-    LectorCodigoBarrasComponent,
     LoginComponent,
     LogoutComponent,
     OrganizarComponent,
@@ -67,18 +60,14 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     BarcodeScannerLivestreamModule,
-    ChartsModule,
-    SharedModule,
-    EstadisticasModule,
-    InventarioModule
+    SharedModule
   ],
   providers: [ 
     { provide: LOCALE_ID, useValue: 'es' } ,
     ProductosService,
     HistorialService,
     AuthService,
-    UbicacionService,
-    EstadisticasModule
+    UbicacionService
   ],
   bootstrap: [AppComponent]
 })
