@@ -60,29 +60,19 @@
 
 
 /* BASE */
-body {
-  font-family: var(--fuente-principal);
-  color: var(--color-fuente-principal);
-  background-color: whitesmoke;
-}
-
-i {
-  font-style: normal;
-  font-size: var(--h5);
-}
-
 a {
   text-decoration: none;
   color: inherit;
 }
 
-p {
-  font-size: var(--h6);
-  line-height: var(--spacing-3);
-}
-
 blockquote {
   font-size: var(--h5);
+}
+
+body {
+  font-family: var(--fuente-principal);
+  color: var(--color-fuente-principal);
+  background-color: whitesmoke;
 }
 
 /* h1 - h6 */
@@ -110,6 +100,28 @@ h6 {
   font-size: var(--h6);
 }
 
+i {
+  font-style: normal;
+  font-size: var(--h5);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+
+p {
+  font-size: var(--h6);
+  line-height: var(--spacing-3);
+}
+
+
+
+
+
 /* Buttons */
 button {
   padding: var(--spacing-2);
@@ -119,6 +131,16 @@ button {
   font-size: var(--h6);
   border: none;
   border-radius: var(--border-radius);
+  transition-property: opacity;
+  transition-duration: .3s;
+}
+
+button:hover{
+  opacity: .8;
+}
+button:disabled,
+button[disabled]{
+  opacity: .3;
 }
 
 button.btn--principal {
@@ -140,15 +162,16 @@ button.btn--secundario-outline {
   border: 1px solid var(--color-secundario);
 }
 
-button.btn--acion-edit{
+button.btn--action-edit{
   border-radius: 20%;
   background-color: var(--color-action-editar);
 }
 
-button.btn--acion-delete{
+button.btn--action-delete{
   border-radius: 20%;
   background-color: var(--color-action-eliminar);
 }
+
 
 button.btn--action-add{
   background-color: var(--color-principal);
@@ -157,9 +180,6 @@ button.btn--action-add{
   left: 20px; */
 }
 
-
-
-/* Forms */
 input {
   width: 100%;
   padding: var(--spacing-2);
@@ -168,11 +188,6 @@ input {
   font-size: var(--h6);
 }
 
-img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
 
 form {
   display: grid;
@@ -229,7 +244,7 @@ form {
 
 .layout {
   display: grid;
-  grid-template-rows: 100%;
+  /* grid-template-rows: 100%; */
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-items: center;

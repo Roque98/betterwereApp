@@ -1,12 +1,15 @@
-<app-navigation [url]="'home'" [title]="'Organizar inventario'"></app-navigation>
+<app-navigation [url]="'/home'" [title]="'Organizar inventario'"></app-navigation>
 
 <div class="container">
-  <button class="btn--action-add"><i class="bi bi-plus-circle"> Agregar nueva ubicacion</i></button>
+  <button class="btn--action-add" (click)="navigateByUrl('/organizar/crear-ubicacion')"><i class="bi bi-plus-circle"> Agregar nueva ubicacion</i></button>
 
   <h1>Ubicaciones</h1>
 
-  <div *ngFor="let ubicacion of ubicaciones">
-    <app-card-producto-organizar [ubicacion]='ubicacion'></app-card-producto-organizar>
+  <!-- loader -->
+  <app-loader *ngIf="cargando"></app-loader>
+
+  <div *ngIf="!cargando">
+    <app-card-ubicacion *ngFor="let ubicacion of ubicaciones" [ubicacion]='ubicacion' (newItemEvent)="deleteUbicacion(ubicacion)"></app-card-ubicacion>
   </div>
 
   <app-texto-ayuda [textoAyuda]="textoAyuda"></app-texto-ayuda>

@@ -1,0 +1,9 @@
+.container {
+  padding: var(--spacing-3);
+  display: grid;
+  grid-template-columns: 1fr 3fr 60px;
+  align-items: center;
+  row-gap: var(--spacing-4);
+  column-gap: var(--spacing-1)
+}
+

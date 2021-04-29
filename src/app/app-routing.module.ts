@@ -27,7 +27,11 @@ const routes: Routes = [
     loadChildren: ()=> import('./pages/historial/historial.module').then(m=>m.HistorialModule),
     canActivate: [CheckAuthenticatedGuard] 
   },
-  { path: 'organizar', component: OrganizarComponent, canActivate: [CheckAuthenticatedGuard] },
+  { 
+    path: 'organizar', 
+    loadChildren: ()=> import('./pages/organizar/organizar.module').then(m=>m.OrganizarModule), 
+    canActivate: [CheckAuthenticatedGuard] 
+  },
   { path: '**', redirectTo: 'home' }
 ];
 

@@ -1,3 +1,5 @@
+import Ubicacion from "./ubicacion.inteface";
+
 export interface Producto {
     _id?: string;
     codigo_producto: string;
@@ -10,5 +12,6 @@ export interface Producto {
     precio_especial?: number;
     condiciones_precio_especial?: string;
     instructivo?: string;
+    ubicaciones: Ubicacion[]
 }
 

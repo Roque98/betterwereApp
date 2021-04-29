@@ -1,0 +1,40 @@
+<app-navigation [url]="'/organizar'" [title]="'Editar ubicacion'"></app-navigation>
+
+<!-- loader -->
+<app-loader *ngIf="cargando"></app-loader>
+
+
+<!-- contenido -->
+<div class="container" *ngIf="!cargando">
+  <h1>Nombre ubicacion</h1>
+
+  <form [formGroup]="ubicacionForm" (ngSubmit)="cambiarNombreUbicacion()">
+    
+    <div class="nombre_ubicacion">
+      <blockquote *ngIf="!editandoNombreUbicacion">{{ubicacion.nombre_ubicacion}}</blockquote>
+      <input type="text" *ngIf="editandoNombreUbicacion" formControlName="nombre_ubicacion">
+    </div>
+
+    <div class="actions">
+      <!-- editar -->
+      <button class="btn--action-edit" *ngIf="!editandoNombreUbicacion" (click)="toggleEditarNombreUbicacion()">
+        <i class="bi bi-pencil" ></i>
+      </button>
+      <!-- confirmar -->
+      <button class="btn--action-edit" *ngIf="editandoNombreUbicacion" type="submit">
+        <i class="bi bi-check" ></i>
+      </button>
+      
+    </div>
+  </form>  
+
+
+  <h2>Productos</h2>
+  
+  <button class="btn--action-add" (click)="navigateFromAddProduct()"><i class="bi bi-plus-circle"> Agregar nuevo producto</i></button>
+
+  
+  <app-card-producto-organizar (newItemEvent)="deleteProducto(producto)" *ngFor="let producto of ubicacion.productos" [producto]="producto" [agregar]="false"></app-card-producto-organizar>
+  
+  <app-texto-ayuda [textoAyuda]="textoAyuda"></app-texto-ayuda>
+</div>

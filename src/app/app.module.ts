@@ -9,8 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { LogoutComponent } from './pages/auth/logout/logout.component';
-import { CardProductoOrganizarComponent } from './pages/organizar/card-producto-organizar/card-producto-organizar.component';
-import { OrganizarComponent } from './pages/organizar/organizar.component';
 
 // the scanner!
 import { BarcodeScannerLivestreamModule } from "ngx-barcode-scanner";
@@ -44,9 +42,7 @@ export function tokenGetter() {
     AppComponent,
     HomeComponent,
     LoginComponent,
-    LogoutComponent,
-    OrganizarComponent,
-    CardProductoOrganizarComponent
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +63,7 @@ export function tokenGetter() {
     ProductosService,
     HistorialService,
     AuthService,
-    UbicacionService
+    UbicacionService,
   ],
   bootstrap: [AppComponent]
 })

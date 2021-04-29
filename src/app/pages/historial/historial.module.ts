@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { HistorialRoutingModule } from './historial-routing.module';
 import { SharedModule } from '../shared/shared.module';
+
+// Components
 import { HistorialComponent } from './historial.component';
 
 

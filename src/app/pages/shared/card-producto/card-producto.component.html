@@ -2,4 +2,8 @@
     <img [src]="producto.url_fotografia" alt="" class="card-product__img">
     <div class="card-product__name-product">{{producto.nombre_producto}}</div>
     <div class="card-product__stock">{{producto.stock}}</div>
+
+    <div class="card__ubicaciones">
+        <li *ngFor="let ubicacion of producto.ubicaciones">{{ubicacion.nombre_ubicacion}}</li>
+    </div>
 </div>

@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InventarioRoutingModule } from './inventario-routing.module';
-import { InventarioComponent } from './inventario.component';
 import { SharedModule } from '../shared/shared.module';
+
+// Componentes
+import { InventarioComponent } from './inventario.component';
 
 
 @NgModule({

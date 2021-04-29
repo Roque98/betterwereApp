@@ -1,0 +1,13 @@
+<div class="card-ubicacion border container shadow--short" >
+  <!-- Nombre ubicacion -->
+  <blockquote class="card-ubicacion__nombre-ubicacion" >{{ubicacion.nombre_ubicacion}}</blockquote>
+
+
+  <!-- acciones -->
+  <button class="btn--action-edit" (click)="navigate()">
+    <i class="bi bi-eye" ></i>
+  </button>
+  <button class="btn--action-delete" (click)="enviarEventoEliminar()">
+    <i class="bi bi-trash"></i>
+  </button>
+</div>

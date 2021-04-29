@@ -56,13 +56,9 @@ export class InventarioComponent implements OnInit {
       this.cargando = true;
       this.productoService.getProductos(this.productoBuscado)
         .then((res) => {
+          console.log(res);
           
           this.productos = res['data'];        
-          this.productos.forEach((producto) => {
-            if (!producto.stock) {
-              producto.stock = 0;
-            }
-          })
         })
         .catch((error) => {
           this.error = error['message'];

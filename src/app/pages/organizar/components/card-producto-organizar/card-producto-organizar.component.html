@@ -1,0 +1,16 @@
+<div class="card-producto-ubicacion border container shadow--short" >
+  <!-- Imagen -->
+  <img [src]="producto.url_fotografia" alt="">
+
+  <!-- Nombre ubicacion -->
+  <blockquote class="card-ubicacion__nombre-ubicacion" >{{producto.nombre_producto}}</blockquote>
+
+  <!-- acciones -->
+  <button class="btn--action-add" *ngIf="agregar" (click)="emitirEvento()">
+    <i class="bi bi-plus-circle"></i>
+  </button>
+
+  <button class="btn--action-delete" *ngIf="!agregar" (click)="emitirEvento()">
+    <i class="bi bi-trash"></i>
+  </button>
+</div>

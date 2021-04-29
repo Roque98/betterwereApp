@@ -1,0 +1,18 @@
+<app-navigation [url]="'/organizar'" [title]="'Crear ubicacion'"></app-navigation>
+
+<!-- Loader -->
+<app-loader *ngIf="cargando"></app-loader>
+
+<!-- Contenido -->
+<div class="container" *ngIf="!cargando">
+  <app-texto-ayuda [textoAyuda]="textoAyuda"></app-texto-ayuda>
+
+  <form [formGroup]="ubicacionForm" (ngSubmit)="onSubmit()">
+    <h4>Nombre de la ubicacion:</h4>
+    <input type="text" placeholder="nombre ubicacion"  formControlName="nombre_ubicacion">
+
+    <button type="submit"  [disabled]="!ubicacionForm.valid" class="btn--principal" >Guardar ubicacion</button>
+  </form>
+
+  
+</div>

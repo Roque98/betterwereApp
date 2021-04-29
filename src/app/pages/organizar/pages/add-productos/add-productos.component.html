@@ -1,0 +1,27 @@
+<app-navigation [url]="url" [title]="'Agrega un producto'"></app-navigation>
+
+<!-- Loader -->
+<app-loader *ngIf="cargando"></app-loader>
+
+<div class="container" *ngIf="!cargando">
+
+  <!-- Titulo -->
+  <h1 *ngIf="!cargandoUbicacion">{{ubicacion.nombre_ubicacion}}</h1>
+  <h1 *ngIf="cargandoUbicacion">cargando...</h1>
+
+  <app-barra-busqueda (contenidoInputEmmiter)="actualizarValorDeBusqueda($event)"></app-barra-busqueda>
+
+  <!-- Texto ayuda -->
+  <app-texto-ayuda [textoAyuda]="textoAyuda"></app-texto-ayuda>
+
+
+  <!-- Productos -->
+  <div class="card-group fadeIn" *ngIf="productos && !cargando">
+    <app-card-producto-organizar *ngFor="let producto of productos" [producto]="producto" [agregar]="true"
+      (click)="addProductoAUbicacion(producto)">
+    </app-card-producto-organizar>
+  </div>
+
+  <!-- Loader -->
+  <app-loader *ngIf="cargandoProductos"></app-loader>
+</div>
