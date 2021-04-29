@@ -1,5 +1,6 @@
 .card-product {
   column-gap: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
 }
 
 .card-product__img {

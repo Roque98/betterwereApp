@@ -3,7 +3,7 @@
     <div class="card-product__name-product">{{producto.nombre_producto}}</div>
     <div class="card-product__stock">{{producto.stock}}</div>
 
-    <div class="card__ubicaciones">
-        <li *ngFor="let ubicacion of producto.ubicaciones">{{ubicacion.nombre_ubicacion}}</li>
+    <div class="card__ubicaciones" *ngIf="producto.ubicaciones.length > 0">
+        Puedes encontrarlo en <div *ngFor="let ubicacion of producto.ubicaciones"> | {{ubicacion.nombre_ubicacion}}</div>
     </div>
 </div>
