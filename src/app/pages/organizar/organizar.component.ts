@@ -28,7 +28,6 @@ export class OrganizarComponent implements OnInit {
     this.ubicacionService.listUbicaciones()
       .then((res) => {
         this.ubicaciones = res;   
-        console.log(this.ubicaciones);
       })
       .finally(() => {
         this.cargando = false;
