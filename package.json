@@ -4,12 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "ng serve --host 192.168.0.12",
+    "start:dev:http": "ng serve --host 192.168.0.12 --ssl true --ssl-cert ./ssl/server.crt --ssl-key ./ssl/server.key",
     "build": "ng build --prod --output-path docs --base-href /betterwereApp/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "dev": "ng serve --host 192.168.0.9",
-    "dev:http": "ng serve --host 192.168.0.9 --ssl true --ssl-cert ./ssl/server.crt --ssl-key ./ssl/server.key"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

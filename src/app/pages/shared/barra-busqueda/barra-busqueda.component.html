@@ -1,6 +1,6 @@
 <div class="barra-busqueda layout">
     <div class="input-container">
-        <input class="input-search" type="text" placeholder="codigo, nombre" [(ngModel)]="contenidoInput" (keyup)="emitirCambio()">
+        <input class="input-search" type="text" placeholder="codigo, nombre" [(ngModel)]="contenidoInput" (keyup)="search()">
         <button class="button-clear-input" (click)="clearInput()">x</button>
     </div>
     <div class="icons">
